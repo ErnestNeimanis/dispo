@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import Hamburger from "./Hamburger.vue"
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { useWindowSize } from "@/window"
+const { smallWindow, mediumWindow, largeWindow } = useWindowSize();
+
 
 interface NavItem {
     name?: string,
@@ -10,6 +14,28 @@ interface NavItem {
 
 const route =  useRoute();
 
+const menuClass = ref("-translate-x-[100%] hidden")
+const menuOpen = ref(false)
+
+
+
+function openMenu() {
+  menuOpen.value = true;
+  menuClass.value = "translate-x-[100%]"
+  setTimeout(() => {
+    if (menuOpen.value)
+      menuClass.value = ""
+  }, 1)
+}
+
+function closeMenu() {
+  menuOpen.value = false;
+  menuClass.value = "translate-x-[100%]"
+  setTimeout(() => {
+    if (!menuOpen.value)
+      menuClass.value = "hidden"
+  }, 300)
+}
 
 
 const navMenu = ref<NavItem[]>([
@@ -55,7 +81,7 @@ const navMenu = ref<NavItem[]>([
 
 </script>
 <template>
-<div class="">
+<div v-if="largeWindow" class="">
             <nav class=" flex flex-wrap  ">
                 <RouterLink v-for="(item, i) in navMenu" :to="item.link">
                     <div 
@@ -66,4 +92,19 @@ const navMenu = ref<NavItem[]>([
                 </RouterLink>
             </nav>
         </div>
+         <div v-else class="z-[999] w-full  fixed  top-8 right-4">
+
+    <Hamburger @open="openMenu" @close="closeMenu" class="fixed right-4" />
+    <div :class="menuClass"
+      class="flex flex-col  w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950  rounded-tr-md">
+      <nav  class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
+        <RouterLink v-for="(item,i) in navMenu" :to="item.link">
+        <div  class="flex  text-2xl font-extrabold  text-white  cursor-pointer border px-6 rounded-lg ">
+          <span >{{ item.title }}</span>
+        </div>
+        </RouterLink>
+      </nav>
+    </div>
+
+  </div>
 </template>

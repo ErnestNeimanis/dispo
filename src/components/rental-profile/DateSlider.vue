@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { clear } from 'console';
+
 import { nextTick, onMounted, ref, watch } from 'vue';
 
 
 const dates = ref([
-  "6 November", 
-  "7 November", 
-  "8 November", 
-  "9 November", 
-  "10 November", 
+  "6 November",
+  "7 November",
+  "8 November",
+  "9 November",
+  "10 November",
   "11 November",
   "12 November",
   "13 November",
@@ -23,17 +23,17 @@ const showRightShadow = ref(false);
 
 const interval = ref<any>(null)
 
-function startInterval(movement:number){
+function startInterval(movement: number) {
   interval.value = setInterval(() => {
     scroll(movement)
-  },1)
+  }, 1)
 }
-function stopInterval(){
-   clearInterval(interval.value)
+function stopInterval() {
+  clearInterval(interval.value)
   interval.value = null
 }
 
-function scroll(amount:number) {
+function scroll(amount: number) {
   if (scrollContainer.value) {
     scrollContainer.value.scrollLeft += amount;
     console.log("int")
@@ -41,7 +41,7 @@ function scroll(amount:number) {
 }
 
 
-function setActiveIndex(index:number) {
+function setActiveIndex(index: number) {
   activeIndex.value = index;
 }
 
@@ -56,7 +56,7 @@ function checkScroll() {
 onMounted(() => {
   if (scrollContainer.value) {
     scrollContainer.value.addEventListener('scroll', checkScroll);
-    checkScroll(); 
+    checkScroll();
   }
 });
 
@@ -64,36 +64,33 @@ onMounted(() => {
 </script>
 
 <template>
-   
   <div class="flex items-center  space-x-4 min-w-[400px] w-[500px]">
-    <div class=" bg-white px-2 py-2" :class="{'left-shadow':showLeftShadow}" >
-         <button class=" px-1 bg-gray-200 rounded-full " @mousedown="startInterval(-5)" @mouseup="stopInterval">
-    <i class="bi bi-arrow-left"></i>
-    </button>
-    </div>
-   
- 
-    <div ref="scrollContainer" class="flex space-x-2 overflow-hidden">
-        
-      <button v-for="(date, i) in dates"
-        class="flex items-center rounded-2xl py-3 px-6 border-2 text-nowrap h-8 w-52 text-[10px] font-bold hover:border-blue-500 focus:outline-none focus:border-blue-500"
-        :class="{'bg-blue-500 text-white': i === activeIndex, 'bg-white text-gray-700': i !== activeIndex}"
-        @click="setActiveIndex(i)"
-      >
-      <div>
-        <span> {{ date }}</span>
-      </div>
-      
-       
+    <div class=" bg-white px-2 py-2" :class="{ 'left-shadow': showLeftShadow }">
+      <button class=" px-1 bg-gray-200 rounded-full " @mousedown="startInterval(-5)" @mouseup="stopInterval">
+        <i class="bi bi-arrow-left"></i>
       </button>
     </div>
 
-    <div class=" bg-white px-2 py-2" :class="{'right-shadow':showRightShadow}">
- <button class="  px-1 bg-gray-200 rounded-full" @mousedown="startInterval(+5)" @mouseup="stopInterval">
-        <i class="bi bi-arrow-right"></i>
-    </button>
+
+    <div ref="scrollContainer" class="flex space-x-2 overflow-hidden">
+
+      <button v-for="(date, i) in dates"
+        class="flex items-center rounded-2xl py-3 px-6 border-2 text-nowrap h-8 w-52 text-[10px] font-bold hover:border-blue-500 focus:outline-none focus:border-blue-500"
+        :class="{ 'bg-blue-500 text-white': i === activeIndex, 'bg-white text-gray-700': i !== activeIndex }"
+        @click="setActiveIndex(i)">
+        <div>
+          <span> {{ date }}</span>
+        </div>
+      </button>
+
     </div>
-   
+
+    <div class=" bg-white px-2 py-2" :class="{ 'right-shadow': showRightShadow }">
+      <button class="  px-1 bg-gray-200 rounded-full" @mousedown="startInterval(+5)" @mouseup="stopInterval">
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+
   </div>
 </template>
 
@@ -101,11 +98,12 @@ onMounted(() => {
 
 <style scoped>
 .right-shadow {
-  box-shadow:  -8px 0px 8px -6px rgba(0, 0, 0, 0.253);
-  
+  box-shadow: -8px 0px 8px -6px rgba(0, 0, 0, 0.253);
+
 }
+
 .left-shadow {
-  box-shadow:  8px 0px 8px -6px rgba(0, 0, 0, 0.253);
-  
+  box-shadow: 8px 0px 8px -6px rgba(0, 0, 0, 0.253);
+
 }
 </style>

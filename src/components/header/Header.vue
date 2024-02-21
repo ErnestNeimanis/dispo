@@ -3,8 +3,9 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import NavBar from "./NavBar.vue"
 import Logo from "@/assets/images/dispotravel_logo1.png"
-
-const route =  useRoute();
+import { useWindowSize } from "@/window"
+const route = useRoute();
+const { smallWindow, mediumWindow, largeWindow } = useWindowSize();
 
 interface NavItem {
     name?: string,
@@ -13,7 +14,7 @@ interface NavItem {
 }
 
 
-const logo = ref("")
+const logo = ref("");
 
 
 
@@ -25,7 +26,7 @@ const logo = ref("")
 
             <div class="flex justify-center items-center    ">
                 <RouterLink to="/">
-                <img class=" min-w-[150px] h-[49px] hover:cursor-pointer" :src="Logo" alt="">
+                    <img class=" min-w-[150px] h-[49px] hover:cursor-pointer" :src="Logo" alt="">
                 </RouterLink>
             </div>
 
@@ -45,8 +46,8 @@ const logo = ref("")
             </div>
 
         </div>
-        <NavBar/>
+        <NavBar />
     </div>
 </template>
 
-<style scoped></style>
+<style scoped></style>@/window
