@@ -16,46 +16,7 @@ interface NavItem {
 const logo = ref("")
 
 
-const navMenu = ref<NavItem[]>([
-    {
-        name: 'transport',
-        title: 'Transport',
-        link: "/transport"
-    },
 
-
-    {
-        name: 'tours',
-        title: 'tours',
-        link: "/tours"
-    },
-    {
-        name: 'partners',
-        title: 'Partners',
-        link: "/team"
-    },
-    {
-        name: 'about',
-        title: 'About B2B',
-        link: "/schedule"
-    },
-
-    {
-        name: 'contact',
-        title: 'Contact',
-        link: "/contact"
-    },
-    {
-        name: 'booking',
-        title: 'Book today',
-        link: "/booking"
-    },
-    {
-        name: 'auth',
-        title: 'Log in/Sign ip',
-        link: "/auth"
-    },
-])
 
 </script>
 <template>
@@ -63,8 +24,9 @@ const navMenu = ref<NavItem[]>([
         <div class="flex justify-center items-center gap-6  h-full">
 
             <div class="flex justify-center items-center    ">
-                
-                <img class=" min-w-[150px] h-[49px] " :src="Logo" alt="">
+                <RouterLink to="/">
+                <img class=" min-w-[150px] h-[49px] hover:cursor-pointer" :src="Logo" alt="">
+                </RouterLink>
             </div>
 
             <div class="flex justify-center items-center gap-4 px-4 ">

@@ -28,12 +28,12 @@ const navMenu = ref<NavItem[]>([
     {
         name: 'partners',
         title: 'Partners',
-        link: "/team"
+        link: "/partners"
     },
     {
         name: 'about',
         title: 'About B2B',
-        link: "/schedule"
+        link: "/about"
     },
 
     {
@@ -52,7 +52,6 @@ const navMenu = ref<NavItem[]>([
         link: "/auth"
     },
 ])
-
 
 </script>
 <template>
