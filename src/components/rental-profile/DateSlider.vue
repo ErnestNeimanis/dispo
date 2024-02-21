@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { clear } from 'console';
 import { nextTick, onMounted, ref, watch } from 'vue';
 
 
@@ -20,10 +21,22 @@ const scrollContainer = ref<HTMLElement | null>(null);
 const showLeftShadow = ref(false);
 const showRightShadow = ref(false);
 
+const interval = ref<any>(null)
+
+function startInterval(movement:number){
+  interval.value = setInterval(() => {
+    scroll(movement)
+  },1)
+}
+function stopInterval(){
+   clearInterval(interval.value)
+  interval.value = null
+}
 
 function scroll(amount:number) {
   if (scrollContainer.value) {
     scrollContainer.value.scrollLeft += amount;
+    console.log("int")
   }
 }
 
@@ -54,7 +67,7 @@ onMounted(() => {
    
   <div class="flex items-center  space-x-4 min-w-[400px] w-[500px]">
     <div class=" bg-white px-2 py-2" :class="{'left-shadow':showLeftShadow}" >
-         <button class=" px-1 bg-gray-200 rounded-full " @click="scroll(-100)">
+         <button class=" px-1 bg-gray-200 rounded-full " @mousedown="startInterval(-5)" @mouseup="stopInterval">
     <i class="bi bi-arrow-left"></i>
     </button>
     </div>
@@ -76,7 +89,7 @@ onMounted(() => {
     </div>
 
     <div class=" bg-white px-2 py-2" :class="{'right-shadow':showRightShadow}">
- <button class="  px-1 bg-gray-200 rounded-full" @click="scroll(100)">
+ <button class="  px-1 bg-gray-200 rounded-full" @mousedown="startInterval(+5)" @mouseup="stopInterval">
         <i class="bi bi-arrow-right"></i>
     </button>
     </div>
