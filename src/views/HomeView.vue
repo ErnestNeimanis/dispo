@@ -6,10 +6,10 @@ import Footer from "@/components/Footer.vue";
 
 <template>
 
-  <div class="mx-32 h-3/4 mt-8  relative flex flex-col items-center bg-white rounded-2xl">
+  <div class="relative flex flex-col items-center mx-32 mt-8 bg-white h-3/4 rounded-2xl">
   
-    <RentalDetails class="-translate-y-8 z-0" />
-    <RentalProfile class="-translate-y-24 z-30 "/>
+    <RentalDetails class="z-0 -translate-y-8" />
+    <RentalProfile class="z-30 -translate-y-24 "/>
     
   </div>
 

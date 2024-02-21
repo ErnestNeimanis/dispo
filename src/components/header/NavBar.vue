@@ -3,7 +3,7 @@ import Hamburger from "./Hamburger.vue"
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useWindowSize } from "@/window"
-const { smallWindow, mediumWindow, largeWindow } = useWindowSize();
+const { largeWindow } = useWindowSize();
 
 
 interface NavItem {
@@ -12,7 +12,7 @@ interface NavItem {
     link: string,
 }
 
-const route =  useRoute();
+const route = useRoute();
 
 const menuClass = ref("-translate-x-[100%] hidden")
 const menuOpen = ref(false)
@@ -20,21 +20,21 @@ const menuOpen = ref(false)
 
 
 function openMenu() {
-  menuOpen.value = true;
-  menuClass.value = "translate-x-[100%]"
-  setTimeout(() => {
-    if (menuOpen.value)
-      menuClass.value = ""
-  }, 1)
+    menuOpen.value = true;
+    menuClass.value = "translate-x-[100%]"
+    setTimeout(() => {
+        if (menuOpen.value)
+            menuClass.value = ""
+    }, 1)
 }
 
 function closeMenu() {
-  menuOpen.value = false;
-  menuClass.value = "translate-x-[100%]"
-  setTimeout(() => {
-    if (!menuOpen.value)
-      menuClass.value = "hidden"
-  }, 300)
+    menuOpen.value = false;
+    menuClass.value = "translate-x-[100%]"
+    setTimeout(() => {
+        if (!menuOpen.value)
+            menuClass.value = "hidden"
+    }, 300)
 }
 
 
@@ -81,30 +81,29 @@ const navMenu = ref<NavItem[]>([
 
 </script>
 <template>
-<div v-if="largeWindow" class="">
-            <nav class=" flex flex-wrap  ">
+    <div v-if="largeWindow" class="">
+        <nav class="flex flex-wrap ">
+            <RouterLink v-for="(item, i) in navMenu" :to="item.link">
+                <div :class="{ 'border rounded-2xl bg-blue-900 text-white  px-5 py-1 ': route.path == item.link && route.path != navMenu[0].link }"
+                    class="w-full min-w-full px-4 py-1 font-bold hover:text-blue-500">
+                    <span class="text-sm text-nowrap">{{ item.title }}</span>
+                </div>
+            </RouterLink>
+        </nav>
+    </div>
+    <div v-else class="z-[999] w-full  fixed  top-8 right-4">
+
+        <Hamburger @open="openMenu" @close="closeMenu" class="fixed right-4" />
+        <div :class="menuClass"
+            class="flex flex-col w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950 rounded-tr-md">
+            <nav class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
                 <RouterLink v-for="(item, i) in navMenu" :to="item.link">
-                    <div 
-                    :class="{'border rounded-2xl bg-blue-900 text-white  px-5 py-1 ': route.path == item.link && route.path != navMenu[0].link}"
-                     class="w-full min-w-full   font-bold  px-4 py-1 hover:text-blue-500" >
-                        <span class=" text-nowrap text-sm">{{ item.title }}</span>
+                    <div class="flex px-6 text-2xl font-extrabold text-white border rounded-lg cursor-pointer ">
+                        <span>{{ item.title }}</span>
                     </div>
                 </RouterLink>
             </nav>
         </div>
-         <div v-else class="z-[999] w-full  fixed  top-8 right-4">
 
-    <Hamburger @open="openMenu" @close="closeMenu" class="fixed right-4" />
-    <div :class="menuClass"
-      class="flex flex-col  w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950  rounded-tr-md">
-      <nav  class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
-        <RouterLink v-for="(item,i) in navMenu" :to="item.link">
-        <div  class="flex  text-2xl font-extrabold  text-white  cursor-pointer border px-6 rounded-lg ">
-          <span >{{ item.title }}</span>
-        </div>
-        </RouterLink>
-      </nav>
     </div>
-
-  </div>
 </template>

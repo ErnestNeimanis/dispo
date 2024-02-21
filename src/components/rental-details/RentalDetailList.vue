@@ -35,19 +35,17 @@ const detailsContent = ref([
 ])
 </script>
 <template>
- <div class="flex items-center  justify-center flex-wrap">
-                        <div v-for="details in detailsContent" class="">
-                            <a href=""
-                                class="flex gap-2 rounded-3xl px-3 py-2 text-white text-xs font-bold border border-transparent hover:border-white">
-                                <div>
-                                    <i v-if="details.bsIcon" :class="details.bsIcon, details.itemStyle" class=""></i>
-                                </div>
-                                <div>
-                                    <span class="text-nowrap" :class="details.textStyle">{{ details.text }}</span>
-                                </div>
-
-
-                            </a>
-                        </div>
-                    </div>
+    <div class="flex flex-wrap items-center justify-center">
+        <div v-for="details in detailsContent" class="">
+            <a href=""
+                class="flex gap-2 px-3 py-2 text-xs font-bold text-white border border-transparent rounded-3xl hover:border-white">
+                <div>
+                    <i v-if="details.bsIcon" :class="details.bsIcon, details.itemStyle" class=""></i>
+                </div>
+                <div>
+                    <span class="text-nowrap" :class="details.textStyle">{{ details.text }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
 </template>
