@@ -51,7 +51,10 @@ const rightMenu = ref([
      </div>
     </div>
    <div class="h-full flex items-center ">
-    <img class="min-w-[150px] h-[49px]" :src="logo" alt="">
+    <RouterLink to="/">
+       <img class="min-w-[150px] h-[49px] hover:cursor-pointer" :src="logo" alt="">
+    </RouterLink>
+   
    </div>
    <div class="h-full  flex items-center  flex-wrap justify-around  w-1/3">
     <div v-for="item in rightMenu">
