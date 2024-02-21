@@ -6,7 +6,7 @@ import UniqueLinkCopy from "./UniqueLinkCopy.vue"
 
 </script>
 <template>
-    <div class="relative min-h-52 w-[90%] z-[10]  bg-violet-950 h-52 rounded-2xl pt-7 overflow-hidden">
+    <div class="relative min-h-52 w-[90%] z-[10] max-w-[1050px] min-w-[800px] bg-violet-950 h-52 rounded-3xl pt-7 overflow-hidden">
 
         <div class="absolute  z-[15] bottom-0 right-0 w-52 h-52 translate-x-32 translate-y-24 rounded-full scale-150 border border-white">
             <div class="absolute top-0 left-0 border rounded-full translate-x-5 translate-y-4 border-white w-6 h-6">

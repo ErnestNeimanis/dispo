@@ -2,7 +2,7 @@
 
 </script>
 <template>
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center items-center hover:cursor-pointer ">
                 <div class="flex gap-3 justify-center items-center text-[9px] text-gray-400 font-bold ">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -12,7 +12,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span>Copy your unique trip link</span>
+                        <span class="hover:underline">Copy your unique trip link</span>
                     </div>
 
                 </div>
