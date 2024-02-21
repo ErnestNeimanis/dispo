@@ -9,7 +9,7 @@ import Footer from "@/components/Footer.vue";
   <div class="mx-32 h-3/4 mt-8 relative flex flex-col items-center bg-white rounded-2xl">
   
     <RentalDetails class="-translate-y-8 z-0" />
-    <RentalProfile class="-translate-y-24  "/>
+    <RentalProfile class="-translate-y-24 z-30 "/>
     
   </div>
 
