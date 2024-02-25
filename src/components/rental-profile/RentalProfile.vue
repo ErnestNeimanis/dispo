@@ -3,9 +3,9 @@ import UserProfile from './UserProfile.vue';
 import CompanyProfile from './CompanyProfile.vue';
 import OrderStatus from './OrderStatus.vue';
 import TripMenu from './TripMenu.vue';
-import DateSlider from './DateSlider.vue';
-import LocationDetails from './LocationDetails.vue';
-import Map from './Map.vue';
+import DateSlider from './trip-details/DateSlider.vue';
+import LocationDetails from './trip-details/LocationDetails.vue';
+import Map from './trip-details/Map.vue';
 </script>
 <template>
     <div class="flex justify-center flex-wrap h-full min-w-[400px]   px-12 py-8 pt-10 bg-white shadow-md shadow-gray-400 rounded-xl ">

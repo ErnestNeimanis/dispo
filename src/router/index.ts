@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import TripDetailsVue from '@/components/rental-profile/trip-details/TripDetails.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -30,11 +30,30 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: "/contact",
+      name: "contact",
+      component: HomeView,
+    },
+    {
+      path: "/booking",
+      name: "booking",
+      component: HomeView,
+    },
+    {
       path: "/auth",
       name: "auth",
       component: HomeView,
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.path === "/") {
+    next("/booking"); 
+  } else {
+    next();
+  }
+});
+
 
 export default router
