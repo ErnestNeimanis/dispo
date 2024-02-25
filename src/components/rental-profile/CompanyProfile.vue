@@ -22,10 +22,11 @@ import Flags from './Flags.vue';
 
         </div>
         <div>
-            <div class="flex items-center justify-center w-10 h-10 mt-2 bg-blue-500 rounded-lg">
-                <i class="text-xl text-white bi bi-telephone-fill "></i>
-            </div>
-
+            <a href="tel:+371000000">
+                <div class="flex items-center justify-center w-10 h-10 mt-2 bg-blue-500 hover:bg-blue-700 rounded-lg">
+                    <i class="text-xl text-white bi bi-telephone-fill "></i>
+                </div>
+            </a>
         </div>
 
         <div></div>
