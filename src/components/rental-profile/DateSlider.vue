@@ -36,7 +36,6 @@ function stopInterval() {
 function scroll(amount: number) {
   if (scrollContainer.value) {
     scrollContainer.value.scrollLeft += amount;
-    console.log("int")
   }
 }
 
