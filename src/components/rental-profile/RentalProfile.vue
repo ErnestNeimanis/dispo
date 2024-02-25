@@ -6,6 +6,9 @@ import TripMenu from './TripMenu.vue';
 import TripDetails from './trip-details/TripDetails.vue';
 import ReturnTripDetails from './return-trip-details/ReturnTripDetails.vue';
 import { useRoute } from 'vue-router';
+import { useWindowSize } from '@/window';
+
+const {largeWindow,mediumWindow,smallWindow} = useWindowSize();
 
 const route = useRoute();
 </script>
