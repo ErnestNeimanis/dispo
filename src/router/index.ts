@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import TripDetailsVue from '@/components/rental-profile/trip-details/TripDetails.vue';
+import TripDetails from '@/components/rental-profile/trip-details/TripDetails.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -38,6 +38,7 @@ const router = createRouter({
       path: "/booking",
       name: "booking",
       component: HomeView,
+   
     },
     {
       path: "/auth",
@@ -49,7 +50,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.path === "/") {
-    next("/booking"); 
+    next({ path: "/booking", query: { details: "trip-details" } }); 
   } else {
     next();
   }
