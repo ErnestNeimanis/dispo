@@ -11,8 +11,8 @@ const route = useRoute();
 </script>
 <template>
     <div
-        class="flex justify-center flex-wrap h-full min-w-[400px]   px-12 py-8 pt-10 bg-white shadow-md shadow-gray-400 rounded-xl ">
-        <div class="flex flex-col flex-wrap w-1/3 min-w-[300px] mr-8">
+        class="flex justify-center flex-wrap h-full min-w-[400px   px-[5%] py-8 pt-10 bg-white shadow-md shadow-gray-400 rounded-xl ">
+        <div class="flex flex-col flex-wrap  min-w-[300px mr-8">
             <div class="flex   gap-8 ">
                 <UserProfile class="border-r-2 pr-8" />
                 <CompanyProfile />
@@ -21,7 +21,7 @@ const route = useRoute();
                 <OrderStatus />
             </div>
         </div>
-        <div class=" min-w-[500px]">
+        <div class=" min-w-[500px">
             <TripMenu class="- " />
             <TripDetails v-if="route.query.details == 'trip-details'" />
             <ReturnTripDetails v-else-if="route.query.details == 'return-trip-details'" />

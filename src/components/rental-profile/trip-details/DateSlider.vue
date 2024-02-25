@@ -63,7 +63,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center  space-x-4 min-w-[400px] w-[500px]">
+  <div class="flex items-center  space-x-4 min-w-[400px max-w-[500px]">
     <div class=" bg-white px-2 py-2" :class="{ 'left-shadow': showLeftShadow }">
       <button class=" px-1 bg-gray-200 rounded-full " @mousedown="startInterval(-5)" @mouseup="stopInterval">
         <i class="bi bi-arrow-left"></i>

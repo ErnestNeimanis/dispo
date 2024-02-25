@@ -6,7 +6,7 @@ import Footer from "@/components/Footer.vue";
 
 <template>
 
-  <div class="relative flex flex-col items-center mx-32 mt-8 bg-white h-3/4 rounded-2xl">
+  <div class="relative flex flex-col items-center mx-32 mt-8 min-w-[400px] bg-white h-3/4 rounded-2xl">
   
     <RentalDetails class="z-0 -translate-y-8" />
     <RentalProfile class="z-30 -translate-y-24 "/>

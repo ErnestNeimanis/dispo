@@ -25,9 +25,9 @@ const locationData = ref([
 </script>
 <template>
     <div>
-    <div v-for="location,i in locationData" class="relative">
-    <div   class="flex mb-4">
-        <div class="w-1/2 flex items-center">
+    <div v-for="location,i in locationData" class="relative  ">
+    <div   class="flex flex-wrap  mb-4">
+        <div class=" min-w-[200px] flex items-center ">
             <i class="bi bi-geo-alt  mr-2"></i>
             <div class="flex-1 min-w-0">
                 <div class="truncate">
@@ -36,23 +36,33 @@ const locationData = ref([
                 </div>
             </div>
         </div>
-        <div class="flex ml-4 w-1/2 min-w-[200px]">
-            <div class="flex  w-1/2">
-                <div v-if="location.arrive">
-                    <i class="bi bi-clock text-xs"></i>
-                    <span class="text-[12px] font-bold mx-2">Arrive: {{ location.arrive }}</span>
+        <div class="flex  ml-4  min-w-[200px] ">
+            <div class="flex bo w-1/2">
+                <div v-if="location.arrive" class="flex">
+                    <div>
+                        <i class="bi bi-clock text-xs"></i>
+                    </div>
+                    <div>
+                        <span class="text-[12px] whitespace-nowrap font-bold mx-2">Arrive: {{ location.arrive }}</span>
+                    </div>
+                    
                 </div>
             </div>
-            <div class="flex   w-1/2">
-                <div v-if="location.depart">
-                    <i class="bi bi-clock text-xs "></i>
-                    <span class="text-[12px] font-bold mx-2">Depart: {{ location.depart }}</span>
+            <div class="flex  w-1/2">
+                <div v-if="location.depart" class="flex">
+                    <div>
+                        <i class="bi bi-clock text-xs "></i>
+                    </div>
+                    <div>
+                         <span class="text-[12px] whitespace-nowrap font-bold mx-2">Depart: {{ location.depart }}</span>
+                    </div>
+                   
                 </div>
             </div>
         </div>
         
     </div>
-    <div v-if="i < locationData.length-1" class="h-6 w-[1px] bg-black absolute top-5 left-2"></div>
+    <div v-if="i < locationData.length-1" class="h-[100%]  w-[1px] bg-black absolute top-5 left-2"></div>
     </div>
     </div>
 </template>
