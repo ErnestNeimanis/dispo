@@ -84,7 +84,7 @@ const navMenu = ref<NavItem[]>([
     <div v-if="largeWindow" class="">
         <nav class="flex flex-wrap ">
             <RouterLink v-for="(item, i) in navMenu" :to="item.link">
-                <div :class="{ 'border rounded-2xl bg-blue-900 text-white  px-5 py-1 ': route.path == item.link && route.path != navMenu[0].link }"
+                <div :class="{ 'border rounded-2xl bg-indigo-950 text-white  px-5 py-1 ': route.path == item.link}"
                     class="w-full min-w-full px-4 py-1 font-bold hover:text-blue-500">
                     <span class="text-sm text-nowrap">{{ item.title }}</span>
                 </div>
@@ -98,8 +98,10 @@ const navMenu = ref<NavItem[]>([
             class="flex flex-col w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950 rounded-tr-md">
             <nav class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
                 <RouterLink v-for="(item, i) in navMenu" :to="item.link">
-                    <div class="flex px-6 text-2xl font-extrabold text-white border rounded-lg cursor-pointer ">
-                        <span>{{ item.title }}</span>
+                    <div 
+                    :class="{'border rounded-2xl  text-white px-5 py-1 ': route.path == item.link }"
+                     class="w-full min-w-full   font-bold text-white px-4 py-1 " >
+                        <span class=" text-nowrap text-sm">{{ item.title }}</span>
                     </div>
                 </RouterLink>
             </nav>
