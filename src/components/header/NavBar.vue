@@ -93,7 +93,7 @@ const navMenu = ref<NavItem[]>([
     </div>
     <div v-else class="z-[999] w-full  fixed  top-8 right-4">
 
-        <Hamburger @open="openMenu" @close="closeMenu" class="fixed right-4" />
+        <Hamburger @open="openMenu" @close="closeMenu" class="fixed right-6" />
         <div :class="menuClass"
             class="flex flex-col w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950 rounded-tr-md">
             <nav class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
