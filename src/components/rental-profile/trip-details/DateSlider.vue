@@ -1,7 +1,9 @@
 <script setup lang="ts">
 
 import { nextTick, onMounted, ref, watch } from 'vue';
+import { useWindowSize } from '@/window';
 
+const {largeWindow,mediumWindow,smallWindow} = useWindowSize();
 
 const dates = ref([
   "6 November",
@@ -63,7 +65,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center  space-x-4 min-w-[400px max-w-[500px]">
+  <div 
+  :class="{ 'max-w-[95vw]': !largeWindow}"
+  class="flex items-center  space-x-2  max-w-[500px]">
     <div class=" bg-white px-2 py-2" :class="{ 'left-shadow': showLeftShadow }">
       <button class=" px-1 bg-gray-200 rounded-full " @mousedown="startInterval(-5)" @mouseup="stopInterval">
         <i class="bi bi-arrow-left"></i>
