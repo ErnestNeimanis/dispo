@@ -47,8 +47,19 @@ const rightMenu = ref([
 ])
 </script>
 <template>
-  <div class="flex justify-between h-16 my-8 px-36  ">
-    <div class="flex  items-center justify-around w-full h-full  ">
+  <div 
+  class="flex justify-between w-full h-16 mt-8   ">
+
+  <div class="flex justify-center  items-center  h-full  w-full">
+      <RouterLink to="/">
+        <img class="min-w-[100px] h-[33px] hover:cursor-pointer" :src="logo" alt="">
+      </RouterLink>
+
+    </div>
+
+    <div 
+ 
+    class="flex flex-col items-center justify-around w-full h-full  ">
       <div v-for="item in leftMenu">
         <RouterLink to="item.link">
           <span class="text-sm font-bold hover:underline">{{ item.title }}</span>
@@ -56,13 +67,10 @@ const rightMenu = ref([
       </div>
     </div>
 
-    <div v-if="largeWindow" class="flex justify-center  items-center  h-full  w-full  ">
-      <RouterLink to="/">
-        <img class="min-w-[150px] h-[49px] hover:cursor-pointer" :src="logo" alt="">
-      </RouterLink>
 
-    </div>
-    <div class="flex  items-center justify-around gap-6 w-full   h-full">
+    <div 
+    :class="largeWindow ? 'flex' : 'flex-col'"
+    class="flex  items-center justify-around  w-full   h-full">
       <div v-for="item in rightMenu">
         <div class="flex justify-">
           <RouterLink to="item.link">
@@ -72,5 +80,7 @@ const rightMenu = ref([
 
       </div>
     </div>
+    
   </div>
+
 </template>
