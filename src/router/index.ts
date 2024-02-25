@@ -9,7 +9,31 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
- 
+    {
+      path: "/",
+      name: "home",
+      component: HomeView,
+    },
+    {
+      path: "/",
+      name: "home",
+      component: HomeView,
+    },
+    {
+      path: "/",
+      name: "home",
+      component: HomeView,
+    },
+    {
+      path: "/",
+      name: "home",
+      component: HomeView,
+    },
+    {
+      path: "/",
+      name: "home",
+      component: HomeView,
+    },
   ],
 });
 
