@@ -26,7 +26,7 @@ const locationData = ref([
 <template>
     <div>
     <div v-for="location,i in locationData" class="relative  ">
-    <div   class="flex flex-wrap  mb-4">
+    <div   class="flex justify-between flex-wrap  mb-4">
         <div class=" min-w-[200px] flex items-center ">
             <i class="bi bi-geo-alt  mr-2"></i>
             <div class="flex-1 min-w-0">
@@ -36,8 +36,8 @@ const locationData = ref([
                 </div>
             </div>
         </div>
-        <div class="flex  ml-4  min-w-[200px] ">
-            <div class="flex bo w-1/2">
+        <div class="flex justify-center ml-4  min-w-[200px] ">
+            <div class="flex  w-1/2">
                 <div v-if="location.arrive" class="flex">
                     <div>
                         <i class="bi bi-clock text-xs"></i>

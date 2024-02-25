@@ -6,5 +6,5 @@ import Map from './Map.vue';
 <template>
     <DateSlider class="mt-6" />
     <LocationDetails class="mt-6" />
-    <!-- <Map /> -->
+    <Map />
 </template>
