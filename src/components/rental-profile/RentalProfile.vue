@@ -6,9 +6,15 @@ import TripMenu from './TripMenu.vue';
 import DateSlider from './trip-details/DateSlider.vue';
 import LocationDetails from './trip-details/LocationDetails.vue';
 import Map from './trip-details/Map.vue';
+import TripDetails from './trip-details/TripDetails.vue';
+import ReturnTripDetails from './return-trip-details/ReturnTripDetails.vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 </script>
 <template>
-    <div class="flex justify-center flex-wrap h-full min-w-[400px]   px-12 py-8 pt-10 bg-white shadow-md shadow-gray-400 rounded-xl ">
+    <div
+        class="flex justify-center flex-wrap h-full min-w-[400px]   px-12 py-8 pt-10 bg-white shadow-md shadow-gray-400 rounded-xl ">
         <div class="flex flex-col flex-wrap w-1/3 min-w-[300px] mr-8">
             <div class="flex   gap-8 ">
                 <UserProfile class="border-r-2 pr-8" />
@@ -18,14 +24,10 @@ import Map from './trip-details/Map.vue';
                 <OrderStatus />
             </div>
         </div>
-        <div class=" min-w-[500px]"> 
-         
-                <TripMenu class="- " />
-           
-            
-            <DateSlider class="mt-6" />
-            <LocationDetails class="mt-6"  />
-            <Map  />
+        <div class=" min-w-[500px]">
+            <TripMenu class="- " />
+            <TripDetails v-if="route.query.details == 'trip-details'" />
+            <ReturnTripDetails v-else-if="route.query.details == 'return-trip-details'" />
         </div>
     </div>
 </template>

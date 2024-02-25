@@ -16,7 +16,7 @@ const route = useRoute();
                     details</button>
             </RouterLink>
 
-            <RouterLink :to="{ path: '/booking', query: { details: 'return-details' } }">
+            <RouterLink :to="{ path: '/booking', query: { details: 'return-trip-details' } }">
                 <button :class="{ 'bg-blue-950 text-white': route.query.details == 'return-details' }"
                     class="px-8 py-2 text-xs font-bold rounded-2xl border-2 hover:bg-blue-950 hover:text-white">Return trip
                     details</button>
