@@ -85,7 +85,7 @@ const navMenu = ref<NavItem[]>([
             <nav class=" flex flex-wrap  ">
                 <RouterLink v-for="(item, i) in navMenu" :to="item.link">
                     <div 
-                    :class="{'border rounded-2xl bg-blue-900 text-white  px-5 py-1 ': route.path == item.link && route.path != navMenu[0].link}"
+                    :class="{'border rounded-2xl bg-indigo-950 text-white  px-5 py-1 ': route.path == item.link }"
                      class="w-full min-w-full   font-bold  px-4 py-1 hover:text-blue-500" >
                         <span class=" text-nowrap text-sm">{{ item.title }}</span>
                     </div>
