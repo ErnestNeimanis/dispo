@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Hamburger from "./Hamburger.vue"
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useWindowSize } from "@/window"
 const { largeWindow } = useWindowSize();
@@ -16,8 +16,8 @@ const route = useRoute();
 
 const menuClass = ref("-translate-x-[100%] hidden")
 const menuOpen = ref(false)
-
-
+const hamburger = ref<any>(null)
+const closeHamburger = ref()
 
 function openMenu() {
     menuOpen.value = true;
@@ -35,8 +35,16 @@ function closeMenu() {
         if (!menuOpen.value)
             menuClass.value = "hidden"
     }, 300)
+    if(hamburger.value){
+      hamburger.value.close();
+    }
 }
 
+onMounted(() => {
+  if(hamburger.value){
+    closeHamburger.value = hamburger.value.close()
+  }
+})
 
 const navMenu = ref<NavItem[]>([
     {
@@ -91,13 +99,13 @@ const navMenu = ref<NavItem[]>([
             </RouterLink>
         </nav>
     </div>
-    <div v-else class="z-[999] w-full  fixed  top-8 right-4">
+    <div v-else class="z-[999] w-full  fixed  top-8 ">
 
-        <Hamburger @open="openMenu" @close="closeMenu" class="fixed right-6" />
+        <Hamburger ref="hamburger"  @open="openMenu" @close="closeMenu" class="fixed right-6" />
         <div :class="menuClass"
             class="flex flex-col w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950 rounded-tr-md">
             <nav class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
-                <RouterLink v-for="(item, i) in navMenu" :to="item.link">
+                <RouterLink v-for="(item, i) in navMenu" :to="item.link" @click="closeMenu">
                     <div 
                     :class="{'border rounded-2xl  text-white px-5 py-1 ': route.path == item.link }"
                      class="w-full min-w-full   font-bold text-white px-4 py-1 " >

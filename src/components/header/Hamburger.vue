@@ -1,17 +1,32 @@
 <script setup lang="ts">
-import { ref, watch, defineProps } from "vue";
+import { ref, watch, defineProps, computed } from "vue";
 
 const props = defineProps(["color"]);
 defineEmits(["open", "close"]);
+defineExpose({
+  open,close
+})
+
 
 const active = ref(false);
 const step1 = ref(false);
 const step2 = ref(false);
 
+
 const bg = props.color ? `bg-${props.color}` : `bg-black`;
 
 const animationSpeed = 500;
 const size = 50;
+
+function open():void{
+  active.value = true;
+}
+function close():void{
+  active.value = false;
+}
+
+
+
 
 function animate() {
   if (active.value) {
@@ -36,6 +51,7 @@ function animate() {
 }
 
 watch(active, animate);
+
 </script>
 <template>
   <div class="p-3 rounded-md bg-indigo-950">
