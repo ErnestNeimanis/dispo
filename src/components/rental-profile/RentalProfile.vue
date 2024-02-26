@@ -8,7 +8,7 @@ import ReturnTripDetails from './return-trip-details/ReturnTripDetails.vue';
 import { useRoute } from 'vue-router';
 import { useWindowSize } from '@/window';
 
-const {largeWindow,mediumWindow,smallWindow} = useWindowSize();
+
 
 const route = useRoute();
 </script>
@@ -26,7 +26,7 @@ const route = useRoute();
         </div>
         <div class=" min-w-[500px">
             <TripMenu class="- " />
-            <TripDetails v-if="route.query.details == 'trip-details'" />
+            <TripDetails v-if="route.query.details == 'trip-details' || !route.query.details " />
             <ReturnTripDetails v-else-if="route.query.details == 'return-trip-details'" />
         </div>
     </div>

@@ -11,7 +11,7 @@ const route = useRoute();
         <div class="flex justify-center items-center gap-4 border-b-2 pb-6">
 
             <RouterLink :to="{ path: '/booking', query: { details: 'trip-details' } }">
-                <button :class="{ 'bg-blue-950 text-white': route.query.details == 'trip-details' }"
+                <button :class="{ 'bg-blue-950 text-white': route.query.details == 'trip-details' || !route.query.details  }"
                     class="px-8 py-2 text-xs font-bold rounded-2xl border-2 hover:bg-blue-950 hover:text-white">Trip
                     details</button>
             </RouterLink>
