@@ -13,7 +13,7 @@ const {largeWindow,mediumWindow,smallWindow} = useWindowSize()
 
     <RentalDetails class="z-0 -translate-y-8" />
     <RentalProfile 
-    :class="{'-translate-y-10':smallWindow}"
+    :class="{'-translate-y-[10vw]':smallWindow}"
     class="z-30 -translate-y-24 transition-transform duration-500 " />
 
   </div>
