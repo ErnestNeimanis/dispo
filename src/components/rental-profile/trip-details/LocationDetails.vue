@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import axios from 'axios';
+
+
 
 const locationData = ref([
     {
@@ -25,7 +28,7 @@ const locationData = ref([
 </script>
 <template>
     <div>
-    <div v-for="location,i in locationData" class="relative  ">
+    <div   v-for="location,i in locationData" class="relative  ">
     <div   class="flex justify-between flex-wrap  mb-4">
         <div class=" min-w-[200px] flex items-center ">
             <i class="bi bi-geo-alt  mr-2"></i>
