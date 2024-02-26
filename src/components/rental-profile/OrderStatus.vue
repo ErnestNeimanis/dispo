@@ -39,7 +39,7 @@ const statusData = ref([
 </script>
 <template>
     <div class="">
-         <div class="flex flex-col">
+         <div class="flex flex-col mb-5">
         <div v-for="item in statusData">
             <div class="flex gap-2">
                 <div>
