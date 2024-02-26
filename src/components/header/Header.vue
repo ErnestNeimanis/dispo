@@ -24,15 +24,15 @@ const {largeWindow,mediumWindow,smallWindow} = useWindowSize()
                 </RouterLink>
             </div>
 
-            <div v-if="largeWindow" class="flex items-center justify-center gap-4 px-4 ">
+            <div  class="flex items-center justify-center gap-4 px-4 ">
                 <div class="flex gap-1 text-sm font-bold text-gray-500 ">
                     <span>EUR</span>
                     <span>
                         <i class="bi bi-currency-dollar"></i>
                     </span>
                 </div>
-                <div class="flex gap-2 text-sm font-bold text-gray-500 ">
-                    <span>Enlgish</span>
+                <div class="flex gap-2 text-sm font-bold cursor-pointer text-gray-500 ">
+                    <span class="">Enlgish</span>
                     <span>
                         <i class="bi bi-globe2"></i>
                     </span>
