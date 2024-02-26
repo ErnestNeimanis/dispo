@@ -7,7 +7,6 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      query: { details: "trip-details" },
       component: HomeView,
     },
     {
