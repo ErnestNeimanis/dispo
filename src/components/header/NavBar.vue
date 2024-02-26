@@ -103,13 +103,13 @@ const navMenu = ref<NavItem[]>([
 
         <Hamburger ref="hamburger"  @open="openMenu" @close="closeMenu" class="fixed right-6" />
         <div :class="menuClass"
-            class="flex flex-col w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950 rounded-tr-md">
-            <nav class=" flex flex-col items-end pr-[20%] gap-4  xs:text-2xl  ">
+            class=" w-full h-screen pt-48 transition-transform duration-500 bg-indigo-950 rounded-tr-md">
+            <nav class=" w-full  items-end pr-[20% gap-4  xs:text-2xl  ">
                 <RouterLink v-for="(item, i) in navMenu" :to="item.link" @click="closeMenu">
                     <div 
-                    :class="{'border rounded-2xl  text-white px-5 py-1 ': route.path == item.link }"
-                     class="w-full min-w-full   font-bold text-white px-4 py-1 " >
-                        <span class=" text-nowrap text-sm">{{ item.title }}</span>
+                    :class="{' bg-white  text-blue-900 px-5 py-1 ': route.path == item.link }"
+                     class="w-full border-b text-center   font-bold text-white px-4 py-1 " >
+                        <span class=" text-nowrap text-[4vh]">{{ item.title }}</span>
                     </div>
                 </RouterLink>
             </nav>
