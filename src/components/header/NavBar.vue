@@ -107,7 +107,7 @@ const navMenu = ref<NavItem[]>([
             <nav class=" w-full  items-end pr-[20% gap-4  xs:text-2xl  ">
                 <RouterLink v-for="(item, i) in navMenu" :to="item.link" @click="closeMenu">
                     <div 
-                    :class="{' bg-white  text-blue-900 px-5 py-1 ': route.path == item.link }"
+                    :class="{' bg-white  text-blue-800 px-5 py-1 ': route.path == item.link }"
                      class="w-full border-b text-center   font-bold text-white px-4 py-1 " >
                         <span class=" text-nowrap text-[4vh]">{{ item.title }}</span>
                     </div>
